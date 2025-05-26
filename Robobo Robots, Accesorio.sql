@@ -1,4 +1,4 @@
-INSERT INTO Articulo()
+/* INSERT INTO Articulo()
 VALUES
 ('NS01120917GCS0004', 'robot'),
 ('NS01120917GCS0007', 'robot'),
@@ -53,6 +53,7 @@ VALUES
 ('A3','Adicional'),
 ('A4','Adicional'),
 ('A5','Adicional');
+*/
 
 INSERT INTO Robot ()
 values
@@ -112,6 +113,7 @@ values('A1','accesorio','Pusher','12'),
 ('A4','accesorio','Lego cortos','10'),
 ('A5','accesorio','Lego largos','6');
 
-select * from articulo;
+
 select * from robot;
 select * from adicionales;
+select * from articulo;

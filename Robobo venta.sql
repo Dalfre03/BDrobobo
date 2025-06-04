@@ -1,6 +1,15 @@
 INSERT INTO Usuarios()
 VALUES('12345678R','Armando','Paredes','123 45 67 89','Armando@gmail.com');
 
+insert into Reparaciones()
+values ('1','NS01120917GCS0004','12345678R','Faltan Tornillos','1');
+
+INSERT INTO Subreparacion()
+values ('1','RB0201','10','1');
+
+SELECT * FROM REPARACIONES;
+SELECT * FROM SUBREPARACION;
+
 INSERT INTO Venta_robot(DNI)
 values('12345678R');
 

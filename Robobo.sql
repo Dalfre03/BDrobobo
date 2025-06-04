@@ -35,20 +35,6 @@ CREATE TABLE Piezas (
     Unidades_Disponibles INT
 );
 
-/*  CREATE TABLE SubPedido (
-    ID_Subpedido INT PRIMARY KEY AUTO_INCREMENT,
-    ID_Pieza VARCHAR(10),
-    ID_Pedido INT,
-    ID_Compra INT,
-    Unidades INT,
-    Proveedor VARCHAR(100),
-    FOREIGN KEY (ID_Pieza) REFERENCES piezas(ID_Pieza),
-    FOREIGN KEY (ID_Pedido) REFERENCES Pedido(ID_Pedido),
-    FOREIGN KEY (ID_Compra) REFERENCES Compras(ID_Compra)
-); 
-
-select * from subpedido;*/
-
 DELIMITER $$
 
 CREATE TRIGGER insertar_o_sumar_en_piezas
@@ -74,13 +60,6 @@ END$$
 
 DELIMITER ;
 
-/*       
-CREATE TABLE Articulo (
-    ID_Articulo VARCHAR(20) PRIMARY KEY,
-    Tipo ENUM('Robot', 'Adicional')
-);
-*/
-
 CREATE TABLE Robot (
     ID_Robot VARCHAR(20) PRIMARY KEY,
     Nombre VARCHAR(100),
@@ -103,12 +82,23 @@ CREATE TABLE Adicionales (
    -- FOREIGN KEY (ID_Adicionales) REFERENCES Articulo(ID_Articulo)
 );
 
+CREATE TABLE Usuarios (
+	DNI VARCHAR(20) PRIMARY KEY,
+    Nombre VARCHAR (20),
+    Apellidos VARCHAR (40),
+    Teléfono VARCHAR (20),
+    Correo VARCHAR (20)
+);
+
+
 CREATE TABLE Reparaciones (
     ID_Reparacion INT PRIMARY KEY AUTO_INCREMENT,
     ID_Robot VARCHAR(100),
+    DNI VARCHAR (20),
     Fallo TEXT,
     Reparado boolean,
-    FOREIGN KEY (ID_Robot) REFERENCES Robot(ID_Robot)
+    FOREIGN KEY (ID_Robot) REFERENCES Robot(ID_Robot),
+    FOREIGN KEY (DNI) REFERENCES Usuarios(DNI)
 );
 
 CREATE TABLE SubReparacion(
@@ -149,15 +139,6 @@ END$$
 
 DELIMITER ;
 
-
-CREATE TABLE Usuarios (
-	DNI VARCHAR(20) PRIMARY KEY,
-    Nombre VARCHAR (20),
-    Apellidos VARCHAR (40),
-    Teléfono VARCHAR (20),
-    Correo VARCHAR (20)
-);
-
 CREATE TABLE Venta_Robot (
     ID_venta INT PRIMARY KEY AUTO_INCREMENT,
     DNI VARCHAR(20),
@@ -179,37 +160,10 @@ CREATE TABLE SubVenta_Robot (
 
 select * from subventa_robot
 
-DELIMITER $$
-
-/*
-CREATE TRIGGER trg_after_insert_subventa
-AFTER INSERT ON SubVenta_Robot
-FOR EACH ROW
-BEGIN
-    DECLARE tipo_articulo ENUM('Robot', 'Adicional');
-
-    SELECT Tipo INTO tipo_articulo FROM Articulo WHERE ID_Articulo = NEW.ID_Articulo;
-
-    IF tipo_articulo = 'Adicional' THEN
-        UPDATE Adicionales
-        SET Unidades = Unidades - NEW.Cantidad
-        WHERE ID_Adicionales = NEW.ID_Articulo;
-        
-        DELETE FROM Adicionales WHERE ID_Adicionales = NEW.ID_Articulo AND Unidades <= 0;
-        
-    ELSEIF tipo_articulo = 'Robot' THEN
-       
-        UPDATE Robot
-        SET VENDIDO = 'SI'
-        WHERE ID_Robot = NEW.ID_Articulo;
-    END IF;
-END$$
-
-DELIMITER ;
-
-*/
 
 DELIMITER //
+
+/* TRIGGER PARA NO USAR LA TABLA ARTICULO*/
 
 CREATE TRIGGER after_insert_subventa_robot
 AFTER INSERT ON SubVenta_Robot

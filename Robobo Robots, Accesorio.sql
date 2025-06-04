@@ -1,60 +1,3 @@
-/* INSERT INTO Articulo()
-VALUES
-('NS01120917GCS0004', 'robot'),
-('NS01120917GCS0007', 'robot'),
-('NS01120917GCS0008', 'robot'),
-('NS01120917GCS0009', 'robot'),
-('NS01120917GCS0010', 'robot'),
-('NS01120917GCS0011', 'robot'),
-('NS01120917GCS0013', 'robot'),
-('NS01120917GCS0014', 'robot'),
-('NS01120917GCS0015', 'robot'),
-('NS01120917GCS0016', 'robot'),
-('NS01120917GCS0017', 'robot'),
-('NS01120917GCS0018', 'robot'),
-('NS01120917GCS0019', 'robot'),
-('NS01120917GCS0020', 'robot'),
-('NS01120917GCS0021', 'robot'),
-('NS01120917GCS0022', 'robot'),
-('NS01120917GCS0023', 'robot'),
-('NS01120917GCS0024', 'robot'),
-('NS01120917GCS0025', 'robot'),
-('NS01120917GCS0026', 'robot'),
-('NS01120917GCS0027', 'robot'),
-('NS01120917GCS0028', 'robot'),
-('NS01120917GCS0029', 'robot'),
-('NS01120917GCS0031', 'robot'),
-('NS01120917GCS0032', 'robot'),
-('NS01120917GCS0033', 'robot'),
-('NS01120917GCS0034', 'robot'),
-('NS01120917GCS0035', 'robot'),
-('NS01120917GCS0037', 'robot'),
-('NS01120917GCS0038', 'robot'),
-('NS01120917GCS0039', 'robot'),
-('NS01120917GCS0040', 'robot'),
-('NS01120917GCS0041', 'robot'),
-('NS01120917GCS0042', 'robot'),
-('NS01120917GCS0043', 'robot'),
-('NS01120917GCS0044', 'robot'),
-('NS01120917GCS0045', 'robot'),
-('NS01120917GCS0046', 'robot'),
-('NS01120917GCS0047', 'robot'),
-('NS01120917GCS0048', 'robot'),
-('NS01120917GCS0049', 'robot'),
-('NS01120917GCS0050', 'robot');
-
-INSERT INTO Articulo()
-VALUES
-('C1','Adicional'),
-('C2','Adicional'),
-('C3','Adicional'),
-('A1','Adicional'),
-('A2','Adicional'),
-('A3','Adicional'),
-('A4','Adicional'),
-('A5','Adicional');
-*/
-
 INSERT INTO Robot ()
 values
 ('NS01120917GCS0004', 'ROB-WMP', 'RBEX0004', 'NO', 'NO', 'NO', 'NO', 'NO'),
@@ -116,4 +59,3 @@ values('A1','accesorio','Pusher','12'),
 
 select * from robot;
 select * from adicionales;
-select * from articulo;
